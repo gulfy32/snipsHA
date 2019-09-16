@@ -1,0 +1,15 @@
+  # based on gulfy32:ArmAlarm
+  # This arms an alarm with mode of 'home', 'away' or 'night' using a code you specify.
+  # alarm_control_panel.alarm_arm_{{ mode }} pulls from the 'mode' slot in the intent
+  # {{ alarm }} pulls from the 'alarm' slot in the intent
+  # {{ number }} pulls from the 'number' slot in the intent
+intent_script:
+  ArmAlarm:
+    speech:
+      text: Arming Alarm Home
+    action:
+      service_template: alarm_control_panel.alarm_arm_{{ mode | replace(" ","_")}}
+      data_template:
+        entity_id: alarm_control_panel.{{ alarm }}
+        code: {{ number }}
+
