@@ -1,0 +1,11 @@
+#SwitchOn
+# This turns a switch on with a name of switch.{{ Entity }} from the gulfy32:SwitchOn intent in Snips
+# e.g. "Hey Snips turn the Office Lamp on - triggers switch.lffice_lamp
+#
+  SwitchOn:
+    speech:
+      text: Turning {{ Entity }} On
+    action:
+      service: switch.turn_on
+      data_template:
+        entity_id: switch.{{ Entity | replace(" ","_")}}
