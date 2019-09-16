@@ -11,5 +11,5 @@ intent_script:
       service_template: alarm_control_panel.alarm_arm_{{ mode | replace(" ","_")}}
       data_template:
         entity_id: alarm_control_panel.{{ alarm }}
-        code: {{ number }}
+        code: 1234 # Using {{ number}} seems to break HA, WIP, # hard coded for now
 
